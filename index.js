@@ -2,7 +2,6 @@ require('dotenv').config()
 
 const Discord = require('discord.js')
 const http = require('http')
-const url = require('url')
 
 const commandParser = require('./lib/commands')
 
@@ -61,7 +60,7 @@ client.on('ready', () => {
   const channel = client.channels.find('name', process.env.MONITOR_CHANNEL)
   const server = http.createServer(async (request, response) => {
     try {
-      const pathParts = new url.URL(request.url).path.split('/').slice(1)
+      const pathParts = request.url.split('/').slice(1)
       switch (pathParts[0]) {
         case 'cryptopools': // /cryptopools
           switch (pathParts[1]) {
