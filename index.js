@@ -58,6 +58,7 @@ client.on('ready', () => {
   debugPrint('BOT STARTED!')
 
   const channel = client.channels.find(({ name }) => name === process.env.MONITOR_CHANNEL)
+
   const server = http.createServer(async (request, response) => {
     try {
       const pathParts = request.url.split('/').slice(1)
@@ -124,10 +125,12 @@ client.on('ready', () => {
     }
   })
 
-  server.listen(parseInt(process.env.PORT))
+  server.listen(parseInt(process.env.PORT), '127.0.0.1')
   debugPrint('SERVER STARTED!')
 
-  client.user.setActivity('Monitoring The Crypto Pools')
+  client.user.setActivity('The Crypto Pools', {
+    type: 'WATCHING'
+  })
 })
 
 client.on('message', async (message) => {
