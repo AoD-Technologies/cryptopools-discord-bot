@@ -57,7 +57,7 @@ const client = new Discord.Client()
 client.on('ready', () => {
   debugPrint('BOT STARTED!')
 
-  const channel = client.channels.find('name', process.env.MONITOR_CHANNEL)
+  const channel = client.channels.find(({ name }) => name === process.env.MONITOR_CHANNEL)
   const server = http.createServer(async (request, response) => {
     try {
       const pathParts = request.url.split('/').slice(1)
@@ -69,7 +69,7 @@ client.on('ready', () => {
                 const coin = pathParts[2]
                 const body = await readJSONBody(request)
 
-                if (!body.miner || !body.url) {
+                if (!body.miner || !body.type || !body.url) {
                   badRequest(response)
                   return
                 }
@@ -77,7 +77,7 @@ client.on('ready', () => {
                 const embed = new Discord.RichEmbed({})
                 embed.setTitle('Block Discovered')
                 embed.setColor(0x00AE86)
-                embed.setDescription(`Congratulations!\nA new ${coin} block has been found by ${body.miner}!`)
+                embed.setDescription(`Congratulations!\nThe ${coin} pool has found a new block!\n\nThis block was found by ${body.miner} while ${body.type} mining!`)
                 embed.setURL(body.url)
                 embed.setAuthor(client.user.username)
                 embed.setThumbnail('https://media.giphy.com/media/QN6NnhbgfOpoI/giphy.gif')
@@ -91,15 +91,15 @@ client.on('ready', () => {
                 const coin = pathParts[2]
                 const body = await readJSONBody(request)
 
-                if (!body.blocks || !body.blocks.length || !body.miners) {
+                if (!body.amount || !body.symbol || !body.blocks || !body.blocks.length || !body.miners) {
                   badRequest(response)
                   return
                 }
 
                 const embed = new Discord.RichEmbed({})
-                embed.setTitle('Payment Sent')
+                embed.setTitle('Pool Payout Sent')
                 embed.setColor(0x00AE86)
-                embed.setDescription(`A payment has been sent for ${coin} block${body.blocks.length !== 1 ? 's' : ''} ${body.blocks.join(', ')} to ${body.miners} miners.!`)
+                embed.setDescription(`The ${coin} pool has sent a payment of ${body.amount} ${body.symbol} for block${body.blocks.length !== 1 ? 's' : ''} ${body.blocks.join(', ')} to ${body.miners} miner${body.miners !== 1 ? 's' : ''}!`)
                 embed.setURL(body.url)
                 embed.setAuthor(client.user.username)
                 embed.setThumbnail('https://media.giphy.com/media/VTxmwaCEwSlZm/giphy.gif')
