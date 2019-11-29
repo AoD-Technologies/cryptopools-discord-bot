@@ -1,0 +1,39 @@
+{
+  "name": "cryptopools-discord-bot",
+  "version": "0.9.0",
+  "description": "Official Discord Bot for The Crypto Pools",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development nodemon --harmony",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint index.js lib/**/*.js",
+    "fix": "eslint --fix index.js lib/**/*.js"
+  },
+  "author": "Jonathan Horowitz",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AoD-Technologies/cryptopools-discord-bot.git"
+  },
+  "private": true,
+  "dependencies": {
+    "cross-env": "^6.0.3",
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.0.0",
+    "github-create-issue": "^2.0.0",
+    "nodemon": "^2.0.1",
+    "r2": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}
