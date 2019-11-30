@@ -82,7 +82,9 @@ client.on('ready', () => {
                 embed.setURL(body.url)
                 embed.setAuthor(client.user.username)
                 embed.setThumbnail('https://media.giphy.com/media/QN6NnhbgfOpoI/giphy.gif')
-                channel.send({ embed })
+
+                const m = await channel.send({ embed })
+                m.react(m.guild.emojis.find(({ name }) => name.toLowerCase() === coin.split(' ')[0].toLowerCase()))
 
                 return
               }
@@ -104,7 +106,9 @@ client.on('ready', () => {
                 embed.setURL(body.url)
                 embed.setAuthor(client.user.username)
                 embed.setThumbnail('https://media.giphy.com/media/VTxmwaCEwSlZm/giphy.gif')
-                channel.send({ embed })
+
+                const m = await channel.send({ embed })
+                m.react(m.guild.emojis.find(({ name }) => name.toLowerCase() === coin.split(' ')[0].toLowerCase()))
 
                 return
               }
