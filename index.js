@@ -105,7 +105,7 @@ client.on('ready', () => {
                 embed.setDescription(`The ${coin} pool has sent a payment of ${body.amount} ${body.symbol} for block${body.blocks.length !== 1 ? 's' : ''} ${body.blocks.join(', ')} to ${body.miners} miner${body.miners !== 1 ? 's' : ''}!`)
                 embed.setURL(body.url)
                 embed.setAuthor(client.user.username)
-                embed.setThumbnail('https://media.giphy.com/media/VTxmwaCEwSlZm/giphy.gif')
+                embed.setThumbnail('https://i.gifer.com/HbGh.gif')
 
                 const m = await channel.send({ embed })
                 m.react(m.guild.emojis.find(({ name }) => name.toLowerCase() === coin.split('-')[0].trim().toLowerCase()))
