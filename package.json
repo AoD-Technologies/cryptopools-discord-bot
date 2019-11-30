@@ -21,8 +21,7 @@
     "discord.js": "^11.5.1",
     "dotenv": "^8.0.0",
     "github-create-issue": "^2.0.0",
-    "nodemon": "^2.0.1",
-    "r2": "^2.0.0"
+    "nodemon": "^2.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
