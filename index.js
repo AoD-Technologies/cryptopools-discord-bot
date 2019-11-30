@@ -67,7 +67,7 @@ client.on('ready', () => {
           switch (pathParts[1]) {
             case 'found-block': // /cryptopools/found-block/{coin}
               if (request.method === 'POST') {
-                const coin = pathParts[2]
+                const coin = decodeURIComponent(pathParts[2])
                 const body = await readJSONBody(request)
 
                 if (!body.miner || !body.type || !body.url) {
@@ -91,7 +91,7 @@ client.on('ready', () => {
               break
             case 'sent-payment': // /cryptopools/sent-payment/{coin}
               if (request.method === 'POST') {
-                const coin = pathParts[2]
+                const coin = decodeURIComponent(pathParts[2])
                 const body = await readJSONBody(request)
 
                 if (!body.amount || !body.symbol || !body.blocks || !body.blocks.length || !body.miners) {
