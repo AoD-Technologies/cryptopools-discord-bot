@@ -77,7 +77,7 @@ client.on('ready', () => {
 
                 const embed = new Discord.RichEmbed({})
                 embed.setTitle('Block Discovered')
-                embed.setColor(0x00AE86)
+                embed.setColor(0x2EB67D)
                 embed.setDescription(`Congratulations!\nThe ${coin} pool has found a new block!\n\nThis block was found by ${body.miner} while ${body.type} mining!`)
                 embed.setURL(body.url)
                 embed.setAuthor(client.user.username)
@@ -99,7 +99,7 @@ client.on('ready', () => {
 
                 const embed = new Discord.RichEmbed({})
                 embed.setTitle('Pool Payout Sent')
-                embed.setColor(0x00AE86)
+                embed.setColor(0x2EB67D)
                 embed.setDescription(`The ${coin} pool has sent a payment of ${body.amount} ${body.symbol} for block${body.blocks.length !== 1 ? 's' : ''} ${body.blocks.join(', ')} to ${body.miners} miner${body.miners !== 1 ? 's' : ''}!`)
                 embed.setURL(body.url)
                 embed.setAuthor(client.user.username)
