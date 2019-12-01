@@ -70,7 +70,7 @@ client.on('ready', () => {
                 const coin = decodeURIComponent(pathParts[2])
                 const body = await readJSONBody(request)
 
-                if (!body.miner || !body.type || !body.url) {
+                if (!body.miner || !body.type || !body.height || !body.url) {
                   badRequest(response)
                   return
                 }
@@ -78,7 +78,7 @@ client.on('ready', () => {
                 const embed = new Discord.RichEmbed({})
                 embed.setTitle('Block Discovered')
                 embed.setColor(0x2EB67D)
-                embed.setDescription(`Congratulations!\nThe ${coin} pool has found a new block!\n\nThis block was found by ${body.miner} while ${body.type} mining!`)
+                embed.setDescription(`Congratulations!\nThe ${coin} pool has found a new block at height ${body.height}!\n\nThis block was found by ${body.miner} while ${body.type} mining!`)
                 embed.setURL(body.url)
                 embed.setAuthor(client.user.username)
                 embed.setThumbnail('https://media.giphy.com/media/QN6NnhbgfOpoI/giphy.gif')
