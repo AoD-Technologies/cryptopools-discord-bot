@@ -84,7 +84,7 @@ client.on('ready', () => {
                 embed.setThumbnail('https://media.giphy.com/media/QN6NnhbgfOpoI/giphy.gif')
 
                 const m = await channel.send({ embed })
-                m.react(m.guild.emojis.find(({ name }) => name.toLowerCase() === coin.split('-')[0].trim().toLowerCase()))
+                m.react(m.guild.emojis.find(({ name }) => name.toLowerCase() === coin.split('-')[0].replace(' ', '').toLowerCase()))
 
                 return
               }
@@ -108,7 +108,7 @@ client.on('ready', () => {
                 embed.setThumbnail('https://i.gifer.com/HbGh.gif')
 
                 const m = await channel.send({ embed })
-                m.react(m.guild.emojis.find(({ name }) => name.toLowerCase() === coin.split('-')[0].trim().toLowerCase()))
+                m.react(m.guild.emojis.find(({ name }) => name.toLowerCase() === coin.split('-')[0].replace(' ', '').toLowerCase()))
 
                 return
               }
