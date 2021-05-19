@@ -17,22 +17,20 @@
   },
   "private": true,
   "dependencies": {
-    "cross-env": "^6.0.3",
-    "discord.js": "^11.5.1",
-    "dotenv": "^8.0.0",
-    "github-create-issue": "^2.0.0",
-    "nodemon": "^2.0.1"
+    "cross-env": "^7.0.3",
+    "discord.js": "^12.5.3",
+    "dotenv": "^9.0.2",
+    "nodemon": "^2.0.7"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.0.1",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.26.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
   }
 }

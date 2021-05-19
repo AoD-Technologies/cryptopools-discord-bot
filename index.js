@@ -57,7 +57,7 @@ const client = new Discord.Client()
 client.on('ready', () => {
   debugPrint('BOT STARTED!')
 
-  const channel = client.channels.find(({ name }) => name === process.env.MONITOR_CHANNEL)
+  const channel = client.channels.cache.find(({ name }) => name === process.env.MONITOR_CHANNEL)
 
   const server = http.createServer(async (request, response) => {
     try {
@@ -75,7 +75,7 @@ client.on('ready', () => {
                   return
                 }
 
-                const embed = new Discord.RichEmbed({})
+                const embed = new Discord.MessageEmbed({})
                 embed.setTitle('Block Discovered')
                 embed.setColor(0x2EB67D)
                 embed.setDescription(`Congratulations!\nThe ${coin} pool has found a new block at height ${body.height}!\n\nThis block was found by ${body.miner} while ${body.type} mining!`)
@@ -86,7 +86,7 @@ client.on('ready', () => {
                 embed.setThumbnail('https://media.giphy.com/media/QN6NnhbgfOpoI/giphy.gif')
 
                 const m = await channel.send({ embed })
-                m.react(m.guild.emojis.find(({ name }) => name.toLowerCase() === coin.split('-')[0].replace(' ', '').toLowerCase()))
+                m.react(m.guild.emojis.cache.find(({ name }) => name.toLowerCase() === coin.split('-')[0].replace(' ', '').toLowerCase()))
 
                 return
               }
@@ -101,7 +101,7 @@ client.on('ready', () => {
                   return
                 }
 
-                const embed = new Discord.RichEmbed({})
+                const embed = new Discord.MessageEmbed({})
                 embed.setTitle('Pool Payout Sent')
                 embed.setColor(0x2EB67D)
                 embed.setDescription(`The ${coin} pool has sent a payment of ${body.amount} ${body.symbol} for block${body.blocks.length !== 1 ? 's' : ''} ${body.blocks.join(', ')} to ${body.miners} miner${body.miners !== 1 ? 's' : ''}!`)
@@ -112,7 +112,7 @@ client.on('ready', () => {
                 embed.setThumbnail('https://i.gifer.com/HbGh.gif')
 
                 const m = await channel.send({ embed })
-                m.react(m.guild.emojis.find(({ name }) => name.toLowerCase() === coin.split('-')[0].replace(' ', '').toLowerCase()))
+                m.react(m.guild.emojis.cache.find(({ name }) => name.toLowerCase() === coin.split('-')[0].replace(' ', '').toLowerCase()))
 
                 return
               }
